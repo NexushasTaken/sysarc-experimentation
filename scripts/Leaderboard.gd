@@ -2,6 +2,8 @@ extends Control
 
 @onready var list: VBoxContainer = $VBoxContainer/ScrollContainer/PlayerList
 
+signal back
+
 enum Labels {
 	LOAD_FROM_DISK,
 	LOAD_FROM_DATABASE,
@@ -95,3 +97,7 @@ func _on_load_from_disk_pressed() -> void:
 
 func _on_clear_pressed() -> void:
 	clear()
+
+
+func _on_back_pressed() -> void:
+	emit_signal("back")
