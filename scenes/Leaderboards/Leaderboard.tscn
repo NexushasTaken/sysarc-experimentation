@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnx58kjq4re1j"]
+
+[ext_resource type="Script" uid="uid://dvy8ua7t8u2jw" path="res://scripts/Leaderboard.gd" id="1_sl7hu"]
+[ext_resource type="Theme" uid="uid://tiegkk5smcbb" path="res://themes/leaderboard_horizontal.tres" id="1_xf8k6"]
+[ext_resource type="PackedScene" uid="uid://ddt30d3xu8u1f" path="res://scenes/Leaderboards/LeaderboardItem.tscn" id="2_prr67"]
+
+[node name="Leaderboards" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sl7hu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -188.5
+offset_right = 256.0
+offset_bottom = 188.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Refresh"
+horizontal_alignment = 1
+
+[node name="Header" parent="VBoxContainer" instance=ExtResource("2_prr67")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 288)
+layout_mode = 2
+
+[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_xf8k6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Refresh" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Refresh"
+
+[node name="SaveToDisk" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save to Disk"
+
+[node name="LoadFromDisk" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Load from Disk"
+
+[node name="Clear" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clear"
+
+[node name="LoadedFromDisk" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Loaded from Disk"
+horizontal_alignment = 1
+
+[node name="LoadedFromDatabase" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Loaded from Database"
+horizontal_alignment = 1
+
+[node name="SaveToDisk" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Save to Disk"
+horizontal_alignment = 1
+
+[node name="Clear" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Cleared"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SaveToDisk" to="." method="_on_save_to_disk_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LoadFromDisk" to="." method="_on_load_from_disk_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Clear" to="." method="_on_clear_pressed"]

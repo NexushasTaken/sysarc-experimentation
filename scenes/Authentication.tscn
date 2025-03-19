@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://cskj2fkxqqvvl"]
+
+[ext_resource type="Script" uid="uid://v28c1inqge55" path="res://scripts/Authentication.gd" id="1_r67kn"]
+[ext_resource type="Theme" uid="uid://cr2gucknhe7ip" path="res://themes/ui_theme.tres" id="2_brbbq"]
+
+[node name="Authentication" type="HBoxContainer"]
+offset_right = 404.0
+offset_bottom = 128.0
+script = ExtResource("1_r67kn")
+
+[node name="Login" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Login" type="Label" parent="Login"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Login"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="login_mail" type="LineEdit" parent="Login"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_brbbq")
+text = "nexushastaken@gmail.com"
+metadata/_edit_use_anchors_ = true
+
+[node name="login_pass" type="LineEdit" parent="Login"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_brbbq")
+text = "password"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_login" type="Button" parent="Login"]
+layout_mode = 2
+text = "Login"
+metadata/_edit_use_anchors_ = true
+
+[node name="Register" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Register" type="Label" parent="Register"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Register"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="register_mail" type="LineEdit" parent="Register"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_brbbq")
+text = "nexushastaken@gmail.com"
+metadata/_edit_use_anchors_ = true
+
+[node name="register_pass" type="LineEdit" parent="Register"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_brbbq")
+text = "password"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_register" type="Button" parent="Register"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Register"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Login/btn_login" to="." method="_on_btn_login_pressed"]
+[connection signal="pressed" from="Register/btn_register" to="." method="_on_btn_register_pressed"]
