@@ -18,7 +18,6 @@ var role : String
 var confirmation_sent_at : String
 
 func _init(user_dictionary : Dictionary) -> void:
-	print(user_dictionary)
 	if user_dictionary.has("user"): 
 		access_token = user_dictionary.get("access_token", "")
 		token_type = user_dictionary.get("token_type", "")
